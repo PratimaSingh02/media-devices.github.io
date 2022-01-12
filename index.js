@@ -33,10 +33,14 @@ window.onload=()=>{
         recognition.start();
         navigator.mediaDevices.getUserMedia({audio:true,video:false})
         .then(function(stream) {
+            
              audio.srcObj=stream;
+             audio.load();
              audio.onloadedmetadata=function(e){
+                console.log('audio playing');
                  audio.play();
              }   
+             console.log(stream);
         })
         .catch(function(err) {
         console.log('Unable to get stream'+err);
